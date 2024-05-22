@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bxkdntpo1e3pc"]
+
+[node name="HDivider" type="ColorRect"]
+custom_minimum_size = Vector2(0, 1)

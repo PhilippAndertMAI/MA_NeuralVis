@@ -1,0 +1,22 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://resms00q7pt1"]
+
+[ext_resource type="Material" uid="uid://dfb58hpcvls05" path="res://visualization/resources/ProceduralSky.tres" id="1_40qfu"]
+
+[sub_resource type="Sky" id="Sky_aeshi"]
+sky_material = ExtResource("1_40qfu")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_aeshi")
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 1.67
+glow_blend_mode = 1
+glow_hdr_threshold = 1.2
+glow_hdr_scale = 1.3
+fog_light_energy = 0.9
+fog_density = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_ambient_inject = 5.0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://muiymnpi0e1l"]
+
+[ext_resource type="Script" path="res://visualization/scripts/ActivityMap.cs" id="1_bnen5"]
+[ext_resource type="Environment" uid="uid://resms00q7pt1" path="res://visualization/resources/MainEnvironment.tres" id="1_wtby2"]
+[ext_resource type="Shader" path="res://visualization/resources/shader/ActivityFog.gdshader" id="3_rjf50"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_th8un"]
+resource_local_to_scene = true
+shader = ExtResource("3_rjf50")
+shader_parameter/n_neurons = null
+shader_parameter/fog_width = null
+shader_parameter/fog_height = null
+shader_parameter/min_pos_x = null
+shader_parameter/min_pos_y = null
+shader_parameter/thickness = null
+shader_parameter/positions = null
+shader_parameter/biases = null
+shader_parameter/avg_weights = null
+shader_parameter/avg_activations = null
+shader_parameter/density = 5.0
+shader_parameter/strength = 5.0
+shader_parameter/size = 1.5
+shader_parameter/_colors = null
+shader_parameter/_ranges = null
+
+[node name="ActivityMap" type="Node3D"]
+script = ExtResource("1_bnen5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_wtby2")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+material = SubResource("ShaderMaterial_th8un")

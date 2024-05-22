@@ -1,0 +1,27 @@
+Input
+Description of how input into the network is usually formatted and how it is used.
+
+Output
+What a typical output looks like and how it is interprated for prediction.
+
+Overview
+Overview over the entire program.
+
+Neural Network
+Intruduction to a simple fully connected neural network. Its uses, training mechanism, etc.
+
+Neurons
+Core mechanism of a neural network. How it functions, where it is used, etc.
+
+Forward Propagation
+Part of the training process and general prediction.
+
+Backward Propagation
+Part of the training process where the error is propagated through the network, while weights and biases are adjusted.
+
+Layers
+Types of layers and how they are organized.
+
+Activation Functions
+Light introduction to activation functions and where they are used.
+

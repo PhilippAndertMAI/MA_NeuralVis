@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://pbw7kia70fdd"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_20ftk"]
+
+[resource]
+script = ExtResource("1_20ftk")
+item_name = "Forward Propagation"
+item_desc = "[font_size=18]
+
+[p]
+
+Forward propagation is a fundamental algorithm in a neural network that drives both the prediction and training processes. In prediction, a single forward pass determines the output of a single input sample, whereas for training, the forward pass is followed by backward propagation to adjust the weights and biases of each neuron. In both scenarios, the forward propagation steps are the same.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+Forward propagation starts at the input layer that passes in the features of the current sample as an array of values. These values are then passed to (in the case of a fully connected network) each and every neuron of the next layer (the first hidden layer). These neurons then sum and weigh these inputs, calcualte a result via their activation functions, and output a new value that is passed on to the next layer. This process is repeated until the output layer is reached, and a result can be read.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+In NeuralVis, the forward pass can be seen before a prediction happens, where dendrites and neurons light up (more or less intensely, depending on the result of the activation function).
+
+[/p]
+
+[/font_size]"

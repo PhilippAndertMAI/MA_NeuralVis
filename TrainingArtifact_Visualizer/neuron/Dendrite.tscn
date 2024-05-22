@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv5pwg28qg7hk"]
+
+[ext_resource type="Script" path="res://neuron/scripts/Dendrite.cs" id="1_sghru"]
+[ext_resource type="Script" path="res://addons/line_3d/Line3D.gd" id="2_bx6so"]
+[ext_resource type="Gradient" uid="uid://bve8jvqxa2ss3" path="res://neuron/assets/BackpropGradient.tres" id="2_d6map"]
+[ext_resource type="Gradient" uid="uid://fdacjigq6xmu" path="res://neuron/assets/SelectionGradient.tres" id="3_yfw0u"]
+[ext_resource type="Shader" path="res://neuron/assets/selected_dendrite.gdshader" id="4_l8v80"]
+
+[sub_resource type="Curve3D" id="Curve3D_8t6nx"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65s2n"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54osf"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_l8v80")
+shader_parameter/base_color = Color(1, 0.513726, 0, 1)
+shader_parameter/fresnel_amount = 3.0
+shader_parameter/effect_strength = 1.1
+
+[node name="Dendrite" type="Node3D"]
+script = ExtResource("1_sghru")
+BackpropGradient = ExtResource("2_d6map")
+SelectionGradient = ExtResource("3_yfw0u")
+
+[node name="ValueLabel" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.25, 0)
+pixel_size = 0.002
+billboard = 1
+double_sided = false
+fixed_size = true
+text = "0.00
+"
+font_size = 128
+outline_size = 0
+
+[node name="Line3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00981891, 0.0139008, -0.0112605)
+curve = SubResource("Curve3D_8t6nx")
+script = ExtResource("2_bx6so")
+curve_points = PackedVector3Array(0, 0, 0, 2, 0, 0)
+width = 0.015
+flat_direction = 1
+cross_section_resolution = 4
+global_coords = true
+custom_material = SubResource("StandardMaterial3D_65s2n")
+
+[node name="SelectedLine3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0196378, 0.0278016, -0.022521)
+curve = SubResource("Curve3D_8t6nx")
+script = ExtResource("2_bx6so")
+curve_points = PackedVector3Array(0, 0, 0, 2, 0, 0)
+width = 0.07
+flat_direction = 1
+cross_section_resolution = 8
+global_coords = true
+custom_material = SubResource("ShaderMaterial_54osf")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0196378, 0.0278016, -0.022521)
+collision_layer = 4
+input_capture_on_drag = true
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+visible = false

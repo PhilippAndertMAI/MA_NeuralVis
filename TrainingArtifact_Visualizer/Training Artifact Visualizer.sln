@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training Artifact Visualizer", "Training Artifact Visualizer.csproj", "{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingArtifactReader", "..\TrainingArtifact_Reader\TrainingArtifactReader.csproj", "{ED584CE6-C6EA-439B-A544-1FCC44A6364C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.Release|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{B371BCC1-97E1-4F60-B369-1BB82BD2DCF8}.Release|Any CPU.Build.0 = ExportRelease|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED584CE6-C6EA-439B-A544-1FCC44A6364C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCA20691-AE66-4EAE-9370-83F3D8E3DB95}
+	EndGlobalSection
+EndGlobal

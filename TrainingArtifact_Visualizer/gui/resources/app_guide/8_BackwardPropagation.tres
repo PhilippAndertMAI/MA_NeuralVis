@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://crd8spug8n8ei"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_3y8l0"]
+
+[resource]
+script = ExtResource("1_3y8l0")
+item_name = "Backward Propagation"
+item_desc = "[font_size=18]
+
+[p]
+
+The backward propagation algorithm does not start immediately after the forward pass, as it requires a set of errors calculated from the current prediction. As mentioned previously, a prediction contains of a set of confidences, i.e. values in the range of [0, 1] for each output neuron. These values are used to calculate the differences towards the correct target, which is known beforehand (which makes NNs a model of the supervised learning school).
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+These errors, also called loss, are the first input into the backward pass. Each backward pass, happening one layer at a time, calculates the derivates of a neuron's error based on its weights and bias, in order to to adjust these weights and biases in the negative direction. This process is called \"gradient descent\", as it gradually corrects the weights and biases over a large number of iterations until the error is minimized. The derivative of the current layer acts as the input into the next backward pass, until the final corrective step happens at the first hidden layer. After this, a single training iteration is complete and a new sample can be predicted, starting again at the forward pass.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+In NeuralVis, the changes to the weights and biases are represented as red and green highlights of the dendrites and neurons as well as the display of the values themselves (only seen when a dendrite is selected).
+
+[/p]
+
+[/font_size]"

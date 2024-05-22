@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://eag1k3s55i2u"]
+
+[ext_resource type="Script" path="res://gui/scripts/elements/StepIndicator.gd" id="2_ix0mh"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(160, 0)
+text = "Forward Prop 1/2"
+script = ExtResource("2_ix0mh")

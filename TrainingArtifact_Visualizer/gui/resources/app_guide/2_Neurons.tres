@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://cwaji1fs7pb8f"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_trmxj"]
+
+[resource]
+script = ExtResource("1_trmxj")
+item_name = "Neurons"
+item_desc = "[font_size=18]
+
+[p]
+
+A singular neuron is made up of a set of weights and biases, whose values are in the range of [0, 1], and a so-called \"activation function\". The network part of neural comes from the fact that these neurons take some numerical input, multiply it by the weights, add the bias and pass this output into neurons of the next layer. In this way the neurons are connected throughout and depend on each others inputs/outputs.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+A neuron in this application is one of the many glowing dots that can be seen. The brighter the dot, the higher the bias of the neuron. The weights are represented by the connecting \"strands\" going from one neuron to the next. [font_size=20][b]Disclaimer:[/b][/font_size] Due to performance constraints, only a handful of connections are shown at any given time.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+To summarize, neurons are arranged in layers, take an input and transform it, and then pass it on to the next layer's neurons. The very last layer is then interprated as a result of the prediction. More on this in the next sections.
+
+[/p]
+
+[/font_size]"

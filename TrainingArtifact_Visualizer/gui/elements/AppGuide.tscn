@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=3 uid="uid://b35mpx3bxjvta"]
+
+[ext_resource type="StyleBox" uid="uid://b7hs8dm77ey76" path="res://gui/styles/AppGuidePanel.tres" id="1_ykti3"]
+[ext_resource type="Script" path="res://gui/scripts/AppGuideController.gd" id="2_q47mt"]
+[ext_resource type="Resource" uid="uid://vgwlqy51mn3g" path="res://gui/resources/app_guide/0_Overview.tres" id="3_l4yjn"]
+[ext_resource type="StyleBox" uid="uid://wx11l6xwpt0f" path="res://gui/styles/AppGuideButtonHover.tres" id="4_om17a"]
+[ext_resource type="Resource" uid="uid://pyvi8jp6gdi8" path="res://gui/resources/app_guide/1_NeuralNetwork.tres" id="4_uko4j"]
+[ext_resource type="Resource" uid="uid://cwaji1fs7pb8f" path="res://gui/resources/app_guide/2_Neurons.tres" id="5_ldhqi"]
+[ext_resource type="StyleBox" uid="uid://bwlktrwbqfd8d" path="res://gui/styles/AppGuideButtonActive.tres" id="5_ofnc0"]
+[ext_resource type="Resource" uid="uid://bbegrsaif4eo8" path="res://gui/resources/app_guide/3_Input.tres" id="6_mh1dv"]
+[ext_resource type="Resource" uid="uid://d4nxkxhlueqyv" path="res://gui/resources/app_guide/4_ActivationFunctions.tres" id="7_scyie"]
+[ext_resource type="Resource" uid="uid://dtn7q447ftcfu" path="res://gui/resources/app_guide/5_Output.tres" id="8_wyb72"]
+[ext_resource type="Resource" uid="uid://b258dibvu5bjf" path="res://gui/resources/app_guide/6_Layers.tres" id="9_xkieu"]
+[ext_resource type="Resource" uid="uid://pbw7kia70fdd" path="res://gui/resources/app_guide/7_ForwardPropagation.tres" id="10_28elf"]
+[ext_resource type="Resource" uid="uid://crd8spug8n8ei" path="res://gui/resources/app_guide/8_BackwardPropagation.tres" id="11_ltpyn"]
+[ext_resource type="Resource" uid="uid://dgwfkk82ot5kh" path="res://gui/resources/app_guide/_Controls.tres" id="13_80hj0"]
+[ext_resource type="StyleBox" uid="uid://cr87odcgu7fu7" path="res://gui/styles/AppGuideButtonHighlightNormal.tres" id="13_nkxr4"]
+[ext_resource type="Script" path="res://gui/scripts/elements/AppGuideCloseButton.gd" id="15_7gaju"]
+
+[sub_resource type="FontFile" id="FontFile_xiqa7"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="AppGuidePanelContainer" type="PanelContainer" node_paths=PackedStringArray("scroll_vbox", "item_desc_container", "btn_close")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_ykti3")
+script = ExtResource("2_q47mt")
+resources_path = "res://gui/resources/app_guide"
+scroll_vbox = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ScrollVBoxContainer")
+item_desc_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ItemContentVBoxContainer/MarginContainer/RichTextLabel")
+btn_close = NodePath("MarginContainer/VBoxContainer/MarginContainer/Button")
+item_resources = Array[Resource("res://gui/resources/scripts/AppGuideItemResource.gd")]([ExtResource("3_l4yjn"), ExtResource("13_80hj0"), ExtResource("4_uko4j"), ExtResource("5_ldhqi"), ExtResource("6_mh1dv"), ExtResource("7_scyie"), ExtResource("8_wyb72"), ExtResource("9_xkieu"), ExtResource("10_28elf"), ExtResource("11_ltpyn")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ScrollVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ItemContentVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ItemContentVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/ItemContentVBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = SubResource("FontFile_xiqa7")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("13_nkxr4")
+theme_override_styles/hover = ExtResource("4_om17a")
+theme_override_styles/pressed = ExtResource("4_om17a")
+theme_override_styles/focus = ExtResource("5_ofnc0")
+text = "To Visualization"
+script = ExtResource("15_7gaju")
+style = ExtResource("13_nkxr4")

@@ -1,0 +1,443 @@
+[gd_scene load_steps=32 format=3 uid="uid://kde8kpjws0le"]
+
+[ext_resource type="Script" path="res://gui/scripts/UIController.cs" id="1_pr30b"]
+[ext_resource type="Script" path="res://gui/scripts/elements/ProgressBar.gd" id="2_b3vcl"]
+[ext_resource type="Texture2D" uid="uid://cnb1tbw0tovam" path="res://gui/icons/fast_rewind.png" id="3_10pmw"]
+[ext_resource type="StyleBox" uid="uid://bdg635b7ehxpn" path="res://gui/styles/EpochStyleBoxFirst.tres" id="3_fm7m4"]
+[ext_resource type="Script" path="res://gui/scripts/elements/StepButton.gd" id="3_kfd45"]
+[ext_resource type="Texture2D" uid="uid://bseix3r528hng" path="res://gui/icons/pause.png" id="3_rf5vj"]
+[ext_resource type="Script" path="res://gui/scripts/EpochDisplayController.gd" id="3_sr73l"]
+[ext_resource type="StyleBox" uid="uid://cpeqcbi6ujtf7" path="res://gui/styles/EpochStyleBox.tres" id="3_u5n3g"]
+[ext_resource type="StyleBox" uid="uid://sic0ia3e82i7" path="res://gui/styles/EpochStyleBoxCurrent.tres" id="4_su4ud"]
+[ext_resource type="Script" path="res://gui/scripts/elements/PlayPauseButton.gd" id="5_enc1u"]
+[ext_resource type="StyleBox" uid="uid://b0cqm5kljniyf" path="res://gui/styles/EpochStyleBoxLast.tres" id="5_totvr"]
+[ext_resource type="PackedScene" uid="uid://cclohaen2wc4i" path="res://gui/Epoch.tscn" id="6_xdf6v"]
+[ext_resource type="PackedScene" uid="uid://eag1k3s55i2u" path="res://gui/StepIndicatorButton.tscn" id="8_ycss8"]
+[ext_resource type="Texture2D" uid="uid://bgnkjeeurqbq8" path="res://gui/icons/fast_forward.png" id="9_32trs"]
+[ext_resource type="Texture2D" uid="uid://d2v35q10u0brf" path="res://gui/icons/layers_on.png" id="9_sbxu2"]
+[ext_resource type="Script" path="res://gui/scripts/elements/ActivityMapSliderContainer.gd" id="9_ujybc"]
+[ext_resource type="Script" path="res://gui/scripts/elements/ToggleActivityMap.gd" id="10_ixfjb"]
+[ext_resource type="Texture2D" uid="uid://b607majxx2yyh" path="res://gui/icons/visibility_on.png" id="12_8ahkq"]
+[ext_resource type="Texture2D" uid="uid://tlm61ttlmyn4" path="res://gui/icons/info_i.png" id="13_17cmk"]
+[ext_resource type="Script" path="res://gui/scripts/elements/ToggleNetworkStats.gd" id="13_qtec3"]
+[ext_resource type="Script" path="res://gui/scripts/elements/PlaybackSpeedSlider.gd" id="16_1oc40"]
+[ext_resource type="Texture2D" uid="uid://ctblvvxuo183p" path="res://gui/icons/arrow2_left.png" id="17_6yrde"]
+[ext_resource type="Texture2D" uid="uid://7ih3me1uarlo" path="res://gui/icons/arrow2_right.png" id="20_ehuro"]
+[ext_resource type="StyleBox" uid="uid://be5d5f6urncuy" path="res://gui/styles/StepIndicatorCurrentBorder.tres" id="22_5v7n1"]
+[ext_resource type="PackedScene" uid="uid://c7gtbon57q70l" path="res://gui/NeuronStats.tscn" id="23_o3k2l"]
+[ext_resource type="PackedScene" uid="uid://c7k6i1ja884n4" path="res://gui/NetworkStats.tscn" id="24_2xjnf"]
+[ext_resource type="Texture2D" uid="uid://nfxjrdhgjtwe" path="res://gui/icons/arrow_right.png" id="24_xetup"]
+[ext_resource type="Script" path="res://gui/scripts/InputOutputRenderer.cs" id="26_4jy0p"]
+[ext_resource type="Texture2D" uid="uid://hfys5g8lieyr" path="res://gui/icons/help.png" id="29_iiqsl"]
+[ext_resource type="PackedScene" uid="uid://b35mpx3bxjvta" path="res://gui/elements/AppGuide.tscn" id="31_wtvrp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fmi33"]
+
+[node name="GUICanvas" type="CanvasLayer" node_paths=PackedStringArray("buttonToggleAppGuide", "buttonToggleActivityMap", "strengthSlider", "sizeSlider", "buttonToggleNetworkStats", "buttonPrev", "buttonNext", "buttonFastRewind", "buttonFastForward", "buttonPlayPause", "playbackSpeedSlider", "stepIndicatorButtonPrev", "stepIndicatorButtonNext", "stepIndicatorButtonCurrent")]
+script = ExtResource("1_pr30b")
+buttonToggleAppGuide = NodePath("InputOutputRenderer/InputScreenAnchor/VBoxContainer/HBoxContainer/ToggleAppGuide")
+buttonToggleActivityMap = NodePath("VBoxContainerBottom/HBoxContainer/ToggleActivityMap")
+strengthSlider = NodePath("VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer/StrengthSlider")
+sizeSlider = NodePath("VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer/SizeSlider")
+buttonToggleNetworkStats = NodePath("VBoxContainerBottom/HBoxContainer/ToggleNetworkStats")
+buttonPrev = NodePath("VBoxContainerBottom/HBoxContainer/HBoxContainer/Prev")
+buttonNext = NodePath("VBoxContainerBottom/HBoxContainer/HBoxContainer/Next")
+buttonFastRewind = NodePath("VBoxContainerBottom/HBoxContainer/HBoxContainer/FastRewind")
+buttonFastForward = NodePath("VBoxContainerBottom/HBoxContainer/HBoxContainer/FastForward")
+buttonPlayPause = NodePath("VBoxContainerBottom/HBoxContainer/HBoxContainer/PlayPause")
+playbackSpeedSlider = NodePath("VBoxContainerBottom/MarginContainerBottom/PlaybackSpeedSlider")
+stepIndicatorButtonPrev = NodePath("MarginContainerTop/VBoxContainer/HBoxContainer/Prev")
+stepIndicatorButtonNext = NodePath("MarginContainerTop/VBoxContainer/HBoxContainer/Next")
+stepIndicatorButtonCurrent = NodePath("MarginContainerTop/VBoxContainer/HBoxContainer/Current")
+
+[node name="VBoxContainerBottom" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainerProgress" type="MarginContainer" parent="VBoxContainerBottom"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainerBottom/MarginContainerProgress"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+step = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("2_b3vcl")
+
+[node name="MarginContainerLabel" type="MarginContainer" parent="VBoxContainerBottom/MarginContainerProgress/ProgressBar"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainerBottom/MarginContainerProgress/ProgressBar/MarginContainerLabel"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]50/100[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainerEpochs" type="HBoxContainer" parent="VBoxContainerBottom/MarginContainerProgress/ProgressBar" node_paths=PackedStringArray("progress_bar")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("3_sr73l")
+progress_bar = NodePath("..")
+epoch_scene = ExtResource("6_xdf6v")
+first_style = ExtResource("3_fm7m4")
+normal_style = ExtResource("3_u5n3g")
+last_style = ExtResource("5_totvr")
+current_style = ExtResource("4_su4ud")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerBottom"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainerActivityMapSettings" type="MarginContainer" parent="VBoxContainerBottom/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/margin_left = -125
+theme_override_constants/margin_right = 25
+
+[node name="ActivityMapSliderContainer" type="VBoxContainer" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings"]
+layout_mode = 2
+script = ExtResource("9_ujybc")
+
+[node name="LabelStrength" type="Label" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 12
+text = "Strength"
+horizontal_alignment = 1
+
+[node name="StrengthSlider" type="HSlider" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+min_value = 0.1
+max_value = 2.5
+step = 0.01
+value = 1.2
+
+[node name="LabelSize" type="Label" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 12
+text = "Size
+"
+horizontal_alignment = 1
+
+[node name="SizeSlider" type="HSlider" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+min_value = 1.0
+max_value = 2.0
+step = 0.01
+value = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings/ActivityMapSliderContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerBottom/HBoxContainer/MarginContainerActivityMapSettings"]
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ToggleNetworkStats" type="Button" parent="VBoxContainerBottom/HBoxContainer"]
+custom_minimum_size = Vector2(40, 32)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_constants/icon_max_width = 24
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("12_8ahkq")
+icon_alignment = 2
+script = ExtResource("13_qtec3")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerBottom/HBoxContainer/ToggleNetworkStats"]
+modulate = Color(0.878431, 0.878431, 0.878431, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_17cmk")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ToggleActivityMap" type="Button" parent="VBoxContainerBottom/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("9_sbxu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_ixfjb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerBottom/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="FastRewind" type="Button" parent="VBoxContainerBottom/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("3_10pmw")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_kfd45")
+
+[node name="Prev" type="Button" parent="VBoxContainerBottom/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("17_6yrde")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_kfd45")
+
+[node name="PlayPause" type="Button" parent="VBoxContainerBottom/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+keep_pressed_outside = true
+shortcut_feedback = false
+icon = ExtResource("3_rf5vj")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_enc1u")
+
+[node name="Next" type="Button" parent="VBoxContainerBottom/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+shortcut_feedback = false
+icon = ExtResource("20_ehuro")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_kfd45")
+
+[node name="FastForward" type="Button" parent="VBoxContainerBottom/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.878431, 0.878431, 0.878431, 1)
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("9_32trs")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_kfd45")
+
+[node name="MarginContainerBottom" type="MarginContainer" parent="VBoxContainerBottom"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="PlaybackSpeedSlider" type="HSlider" parent="VBoxContainerBottom/MarginContainerBottom"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+min_value = 1.0
+max_value = 2.5
+step = 0.025
+value = 1.0
+scrollable = false
+script = ExtResource("16_1oc40")
+
+[node name="MarginContainerTop" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -272.0
+offset_right = 272.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainerTop"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainerTop/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]current step[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainerTop/VBoxContainer"]
+layout_mode = 2
+
+[node name="Prev" parent="MarginContainerTop/VBoxContainer/HBoxContainer" instance=ExtResource("8_ycss8")]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+offset = -1
+
+[node name="TextureRectPrev" type="TextureRect" parent="MarginContainerTop/VBoxContainer/HBoxContainer"]
+modulate = Color(0.878431, 0.878431, 0.878431, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("24_xetup")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Current" parent="MarginContainerTop/VBoxContainer/HBoxContainer" instance=ExtResource("8_ycss8")]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+action_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainerTop/VBoxContainer/HBoxContainer/Current"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -2
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = -2
+theme_override_constants/margin_bottom = -2
+
+[node name="Label" type="Label" parent="MarginContainerTop/VBoxContainer/HBoxContainer/Current/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("22_5v7n1")
+
+[node name="TextureRectNext" type="TextureRect" parent="MarginContainerTop/VBoxContainer/HBoxContainer"]
+modulate = Color(0.878431, 0.878431, 0.878431, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("24_xetup")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Next" parent="MarginContainerTop/VBoxContainer/HBoxContainer" instance=ExtResource("8_ycss8")]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+offset = 1
+
+[node name="MarginContainerNeuronStats" parent="." instance=ExtResource("23_o3k2l")]
+offset_left = -307.0
+offset_top = -440.0
+
+[node name="MarginContainerNetworkStats" parent="." instance=ExtResource("24_2xjnf")]
+
+[node name="InputOutputRenderer" type="Node" parent="." node_paths=PackedStringArray("inputTextureRect", "outputLabel")]
+script = ExtResource("26_4jy0p")
+inputTextureRect = NodePath("InputScreenAnchor/VBoxContainer/HBoxContainer/TextureRect")
+outputLabel = NodePath("InputScreenAnchor/VBoxContainer/Label")
+
+[node name="InputScreenAnchor" type="MarginContainer" parent="InputOutputRenderer"]
+offset_right = 197.0
+offset_bottom = 180.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InputOutputRenderer/InputScreenAnchor"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InputOutputRenderer/InputScreenAnchor/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="InputOutputRenderer/InputScreenAnchor/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.666667)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = SubResource("PlaceholderTexture2D_fmi33")
+
+[node name="ToggleAppGuide" type="Button" parent="InputOutputRenderer/InputScreenAnchor/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0.392157, 0.705882, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.392157, 0.705882, 1, 1)
+theme_override_colors/icon_hover_color = Color(0.392157, 0.705882, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.392157, 0.705882, 1, 1)
+theme_override_colors/icon_focus_color = Color(0.392157, 0.705882, 1, 1)
+shortcut_feedback = false
+text = "
+"
+icon = ExtResource("29_iiqsl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="InputOutputRenderer/InputScreenAnchor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "predicted: 0, correct: true"
+
+[node name="AppGuidePanelContainer" parent="." instance=ExtResource("31_wtvrp")]
+visible = false

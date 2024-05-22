@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtl1rywt61gb7"]
+
+[ext_resource type="Script" path="res://gui/scripts/elements/AppGuideItem.gd" id="1_ckn8p"]
+[ext_resource type="StyleBox" uid="uid://b5f0whqcb1ldj" path="res://gui/styles/AppGuideButtonNormal.tres" id="1_usnf3"]
+[ext_resource type="StyleBox" uid="uid://wx11l6xwpt0f" path="res://gui/styles/AppGuideButtonHover.tres" id="2_r1do5"]
+[ext_resource type="StyleBox" uid="uid://bwlktrwbqfd8d" path="res://gui/styles/AppGuideButtonActive.tres" id="3_m6y5j"]
+[ext_resource type="ButtonGroup" uid="uid://ddq85ac0mtlaa" path="res://gui/resources/AppGuideItemButtonGroup.tres" id="4_p3pu4"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 3
+script = ExtResource("1_ckn8p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("1_usnf3")
+theme_override_styles/hover = ExtResource("2_r1do5")
+theme_override_styles/pressed = ExtResource("3_m6y5j")
+theme_override_styles/focus = ExtResource("3_m6y5j")
+toggle_mode = true
+button_group = ExtResource("4_p3pu4")
+text = "Item 1"

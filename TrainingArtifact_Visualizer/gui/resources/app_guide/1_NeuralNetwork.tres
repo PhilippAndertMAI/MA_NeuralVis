@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://pyvi8jp6gdi8"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_72gau"]
+
+[resource]
+script = ExtResource("1_72gau")
+item_name = "Neural Network"
+item_desc = "[font_size=18]
+
+[p]
+A neural network is a particularly inventive AI model, which lends its name and basic design of connected neurons to the brain's network of neurons itself. It is designed to recognize (or predict) patterns and solve problems by learning from large sets of data in the given domain.
+[/p]
+
+[p] [/p]
+
+[p]
+
+A neural network \"learns\" by making (at first random) predictions on a set of inputs and slowly adjusting the parameters of each neuron according to a function of some \"loss\" metric. Loss is a measure of the error the network makes while outputting predictions. In short, the more the network predicts, the more the parameters of the network are tweaked against the errors it produces (or rather functions based on said errors).
+
+[/p]
+
+[/font_size]"

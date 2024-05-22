@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://d4nxkxhlueqyv"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_la0or"]
+
+[resource]
+script = ExtResource("1_la0or")
+item_name = "Activation Functions"
+item_desc = "[font_size=18]
+
+[p]
+
+What was omitted in the \"Neurons\" section is the fact that the output is finally driven by the activation function of the neuron. Before the neuron outputs a value, the weighted inputs are first passed through the activation function, which controls the intensity and frequency of outputs. 
+
+[p] [/p]
+
+[p]
+
+Activation functions could be simple linear functions or more advanced ones like sigmoid or tanh functions, which ensure a smooth range of output values. Depending on the domain, some functions may perform better than others. In this application, every neuron (except for input neurosn that don't use any) is assigned a tanh function.
+
+[/p]
+
+[/p]
+
+[/font_size]"

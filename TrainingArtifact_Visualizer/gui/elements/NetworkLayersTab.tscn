@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7210fhbvipmu"]
+
+[ext_resource type="PackedScene" uid="uid://cumyvu8y7ep3n" path="res://gui/elements/LabelledDataDisplay.tscn" id="1_6er1f"]
+[ext_resource type="Script" path="res://gui/scripts/elements/NetworkLayersTab.gd" id="1_fewgy"]
+[ext_resource type="PackedScene" uid="uid://ww0g5fpppow" path="res://gui/elements/LayerStats.tscn" id="1_jyi53"]
+[ext_resource type="PackedScene" uid="uid://dm5vpiwp1gqy8" path="res://gui/elements/Footnote.tscn" id="2_b2cup"]
+[ext_resource type="PackedScene" uid="uid://bxkdntpo1e3pc" path="res://gui/elements/HDivider.tscn" id="2_uoidu"]
+
+[node name="NetworkLayersTab" type="MarginContainer" node_paths=PackedStringArray("loss_fn_display", "learning_rate_display", "epochs_display", "num_samples_display", "layers_container")]
+custom_minimum_size = Vector2(270, 0)
+offset_right = 310.0
+offset_bottom = 310.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_fewgy")
+loss_fn_display = NodePath("VBoxContainer/LossFnDisplay")
+learning_rate_display = NodePath("VBoxContainer/LearningRateDisplay")
+epochs_display = NodePath("VBoxContainer/EpochsDisplay")
+num_samples_display = NodePath("VBoxContainer/EpochSamplesDisplay")
+layers_container = NodePath("VBoxContainer/ScrollContainer/MarginContainer/VBoxContainerLayers")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LossFnDisplay" parent="VBoxContainer" instance=ExtResource("1_6er1f")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainer/LossFnDisplay" index="0"]
+text = "Loss Function"
+
+[node name="LearningRateDisplay" parent="VBoxContainer" instance=ExtResource("1_6er1f")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainer/LearningRateDisplay" index="0"]
+text = "Learning Rate"
+
+[node name="HDivider" parent="VBoxContainer" instance=ExtResource("2_uoidu")]
+layout_mode = 2
+
+[node name="EpochsDisplay" parent="VBoxContainer" instance=ExtResource("1_6er1f")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainer/EpochsDisplay" index="0"]
+text = "Epochs Total"
+
+[node name="EpochSamplesDisplay" parent="VBoxContainer" instance=ExtResource("1_6er1f")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainer/EpochSamplesDisplay" index="0"]
+text = "Samples / Epoch"
+
+[node name="HDivider2" parent="VBoxContainer" instance=ExtResource("2_uoidu")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainerLayers" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainerLayers" instance=ExtResource("1_jyi53")]
+layout_mode = 2
+
+[node name="VBoxContainer2" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainerLayers" instance=ExtResource("1_jyi53")]
+layout_mode = 2
+
+[node name="VBoxContainer3" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainerLayers" instance=ExtResource("1_jyi53")]
+layout_mode = 2
+
+[node name="VBoxContainer4" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainerLayers" instance=ExtResource("1_jyi53")]
+layout_mode = 2
+
+[node name="Footnote" parent="." instance=ExtResource("2_b2cup")]
+layout_mode = 2
+
+[editable path="VBoxContainer/LossFnDisplay"]
+[editable path="VBoxContainer/LearningRateDisplay"]
+[editable path="VBoxContainer/EpochsDisplay"]
+[editable path="VBoxContainer/EpochSamplesDisplay"]
+[editable path="Footnote"]

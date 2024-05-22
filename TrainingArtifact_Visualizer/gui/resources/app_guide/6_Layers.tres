@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://b258dibvu5bjf"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_irkon"]
+
+[resource]
+script = ExtResource("1_irkon")
+item_name = "Layers"
+item_desc = "[font_size=18]
+
+[p]
+
+A neural network is organized into layers of neurons, where neurons of the same layer only interact with neurons of the immediately following layer. There are three fundamental types of layers: one input layer, whose inputs are the raw, unweighted samples of the dataset, an arbitrary (chosen) number of so-called hidden layers and one output layer.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+The input layer simply acts as an interface for the input to enter the network and therefore has no weights, biases or activation functions. As such, it is ignored in training. It's dimensions (number of neurons) directly correspond with the feature dimensions of the dataset.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+The hidden layers are called hidden as they lie between the input and the output layer, which, in contrast, are easily interpretable, where the hidden layers can be described as a computational blackbox. Together with the output layer, they contain the neurons whose weights and biases are tweaked during training. The number of neurons in a hidden layer are chosen by the neural network designer and may be tweaked to ensure an optimal network performance.
+
+[/p]
+
+[p]
+
+The final layer of the network is the output layer, which contain the neurons carrying the result of a prediction. As stated in the \"Output\" section, the output values are interprated as confidences of a prediction. This layer is designed by a user for the precise sake of interpretability of a network's workings.
+
+[/p]
+
+[/font_size]"

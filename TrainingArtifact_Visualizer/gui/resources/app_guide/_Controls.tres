@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://dgwfkk82ot5kh"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_e8b4w"]
+
+[resource]
+script = ExtResource("1_e8b4w")
+item_name = "APP CONTROLS"
+item_desc = "[center][font_size=20]
+Controls
+[/font_size][/center]
+
+[font_size=18]
+[p] [/p]
+
+[p][b]Mouse[/b][/p]
+[p]Hold LEFT CLICK + DRAG mouse = rotate camera[/p]
+[p]Hold MIDDLE MOUSE BUTTON + DRAG mouse = pan camera[/p]
+[p]LEFT CLICK on neuron or dendrite = select and focus on this object[/p]
+[p]LEFT CLICK into void = deselect currently selected object[/p]
+[p] [/p]
+[p][b]Keyboard[/b][/p]
+[p]Press F = reset camera to focus on currently selected object[/p]
+[p]Press ESC = Deselect object[/p]
+[p]Press ESC again = Reset camera to origin[/p]
+[p] [/p]
+[p]PS: Many UI elements are clickable and progress the simulation in some way. Feel free to try it out![/p]
+
+[/font_size]"

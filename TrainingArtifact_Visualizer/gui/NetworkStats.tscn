@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7k6i1ja884n4"]
+
+[ext_resource type="PackedScene" uid="uid://dnms2o8tk31dr" path="res://gui/elements/NetworkStatsTab.tscn" id="1_ft5lv"]
+[ext_resource type="Script" path="res://gui/scripts/NetworkStatsController.gd" id="1_ur3jv"]
+[ext_resource type="PackedScene" uid="uid://cth3qhd7hk6w6" path="res://gui/elements/NetworkStatsTabFinal.tscn" id="2_8b5r7"]
+[ext_resource type="PackedScene" uid="uid://c7210fhbvipmu" path="res://gui/elements/NetworkLayersTab.tscn" id="3_fjn76"]
+
+[node name="MarginContainerNetworkStats" type="MarginContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 320.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="NetworkStats" type="TabContainer" parent="." node_paths=PackedStringArray("stats_tabs_current", "stats_tabs_final", "stats_tab_layers")]
+custom_minimum_size = Vector2(270, 390)
+layout_mode = 2
+script = ExtResource("1_ur3jv")
+stats_tabs_current = NodePath("Current")
+stats_tabs_final = NodePath("Final")
+stats_tab_layers = NodePath("Layers")
+
+[node name="Current" parent="NetworkStats" instance=ExtResource("1_ft5lv")]
+layout_mode = 2
+
+[node name="Final" parent="NetworkStats" instance=ExtResource("2_8b5r7")]
+visible = false
+layout_mode = 2
+
+[node name="Layers" parent="NetworkStats" instance=ExtResource("3_fjn76")]
+visible = false
+layout_mode = 2

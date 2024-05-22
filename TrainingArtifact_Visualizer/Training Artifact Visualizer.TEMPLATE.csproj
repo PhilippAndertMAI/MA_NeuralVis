@@ -1,0 +1,25 @@
+﻿<Project Sdk="Godot.Net.Sdk/<VERSION>">
+  <PropertyGroup>
+
+    <GodotRootDir>ROOT DIR HERE</GodotRootDir>
+	  <GodotExePath>PATH TO EXE HERE</GodotExePath>
+
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>TrainingArtifactVisualizer</RootNamespace>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(GodotExePath)</StartProgram>
+    <StartArguments>--path $(GodotRootDir)</StartArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NumSharp" Version="0.30.0"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrainingArtifact_Reader\TrainingArtifactReader.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="TrainingArtifactReaderNS">
+      <HintPath>$(ProjectDir)\TrainingArtifactReader.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

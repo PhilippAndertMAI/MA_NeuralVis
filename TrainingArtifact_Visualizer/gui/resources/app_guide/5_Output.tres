@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://dtn7q447ftcfu"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_a7nhx"]
+
+[resource]
+script = ExtResource("1_a7nhx")
+item_name = "Output"
+item_desc = "[font_size=18]
+
+[p]
+
+Similar to the input, the output is an array of decimal values. The difference to the input is that the output is shaped by the network designer and can therefore be arbitrarily interpreted.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+In NeuralVis, the output is an array of 10 values, one for each digit, that represent the confidence that the current input corresponds with said digit. For example, if the 4th value of the array is 0.85, the network predicted that the current input image shows a handwritten 5 with a certainty of 85%. (the digits are zero-indexed. the first value is the digit 0 and so on).
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+To visualize the prediction, NeuralVis labels the output neurons with the digits and highlights the predicted digit as well as whether it was correct or not (by glowing in red and green light). The current inputs and outputs are also shown on the top left.
+
+[/p]
+
+[/font_size]"

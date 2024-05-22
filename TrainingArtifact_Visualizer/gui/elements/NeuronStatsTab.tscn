@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn34nftdkp3f1"]
+
+[ext_resource type="Script" path="res://gui/scripts/elements/NeuronStatsTab.gd" id="1_74eeb"]
+[ext_resource type="PackedScene" uid="uid://bxkdntpo1e3pc" path="res://gui/elements/HDivider.tscn" id="2_b7nrf"]
+[ext_resource type="PackedScene" uid="uid://cumyvu8y7ep3n" path="res://gui/elements/LabelledDataDisplay.tscn" id="3_ung07"]
+[ext_resource type="PackedScene" uid="uid://dm5vpiwp1gqy8" path="res://gui/elements/Footnote.tscn" id="4_n1eg4"]
+
+[node name="NeuronStatsTab" type="MarginContainer" node_paths=PackedStringArray("neuron_label", "avg_activations_display", "bias_display", "avg_weight_display", "latest_raw_input_display", "latest_weighted_input_display", "latest_activation_display")]
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_74eeb")
+neuron_label = NodePath("VBoxContainerStats/LabelHeader")
+avg_activations_display = NodePath("VBoxContainerStats/AvgActivationsDisplay")
+bias_display = NodePath("VBoxContainerStats/BiasDisplay")
+avg_weight_display = NodePath("VBoxContainerStats/AvgWeightDisplay")
+latest_raw_input_display = NodePath("VBoxContainerStats/LatestInputRawDisplay")
+latest_weighted_input_display = NodePath("VBoxContainerStats/LatestInputWeightedDisplay")
+latest_activation_display = NodePath("VBoxContainerStats/LatestActivationDisplay")
+
+[node name="VBoxContainerStats" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LabelHeader" type="Label" parent="VBoxContainerStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Neuron 001 @ Layer 01"
+
+[node name="HDivider" parent="VBoxContainerStats" instance=ExtResource("2_b7nrf")]
+layout_mode = 2
+
+[node name="AvgActivationsDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+tooltip_text = "The average output value (over each activation thus far) of the weighted inputs passed through the activation function."
+
+[node name="Label" parent="VBoxContainerStats/AvgActivationsDisplay" index="0"]
+text = "Average Activation"
+
+[node name="BiasDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainerStats/BiasDisplay" index="0"]
+text = "Bias"
+
+[node name="AvgWeightDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainerStats/AvgWeightDisplay" index="0"]
+text = "Weights (averaged)"
+
+[node name="HDivider4" parent="VBoxContainerStats" instance=ExtResource("2_b7nrf")]
+layout_mode = 2
+
+[node name="LatestInputRawDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainerStats/LatestInputRawDisplay" index="0"]
+text = "Latest Raw Input"
+
+[node name="LatestInputWeightedDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+tooltip_text = "The weighted input is usually referred to as 'Z' in NN literature."
+
+[node name="Label" parent="VBoxContainerStats/LatestInputWeightedDisplay" index="0"]
+text = "Latest Weighted Input"
+
+[node name="LatestActivationDisplay" parent="VBoxContainerStats" instance=ExtResource("3_ung07")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Label" parent="VBoxContainerStats/LatestActivationDisplay" index="0"]
+text = "Latest Activation"
+
+[node name="Footnote" parent="." instance=ExtResource("4_n1eg4")]
+layout_mode = 2
+
+[editable path="VBoxContainerStats/AvgActivationsDisplay"]
+[editable path="VBoxContainerStats/BiasDisplay"]
+[editable path="VBoxContainerStats/AvgWeightDisplay"]
+[editable path="VBoxContainerStats/LatestInputRawDisplay"]
+[editable path="VBoxContainerStats/LatestInputWeightedDisplay"]
+[editable path="VBoxContainerStats/LatestActivationDisplay"]
+[editable path="Footnote"]

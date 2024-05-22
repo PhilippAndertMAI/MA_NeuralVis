@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bahvl8ueqwgfm"]
+
+[ext_resource type="Script" path="res://visualization/scripts/neural_network/VisualizationManager.cs" id="1_sf8ca"]
+[ext_resource type="Script" path="res://addons/orbit_camera/orbit_camera.gd" id="3_30kut"]
+[ext_resource type="Script" path="res://visualization/scripts/SelectionController.gd" id="4_5avnr"]
+[ext_resource type="Environment" uid="uid://resms00q7pt1" path="res://visualization/resources/MainEnvironment.tres" id="4_87yxp"]
+[ext_resource type="Script" path="res://visualization/scripts/ActivityMapManager.cs" id="5_hqe2l"]
+
+[sub_resource type="GDScript" id="GDScript_0evd1"]
+script/source = "extends Node
+
+
+var training_stepper = null
+
+
+func _input(event):
+	if training_stepper == null:
+		training_stepper = get_node(\"/root/VisualizationManager/TrainingStepper\")
+	
+	if event is InputEventKey:
+		if event.is_action_pressed(\"ui_right\", true):
+			if training_stepper.Increment():
+				training_stepper.ShowCurrentStep()
+			
+		if event.is_action_pressed(\"ui_left\", true):
+			if training_stepper.Decrement():
+				training_stepper.ShowCurrentStep()
+			
+		if event.is_action_pressed(\"ui_up\", true):
+			training_stepper.ShowCurrentStep()
+"
+
+[node name="VisualizationManager" type="Node"]
+script = ExtResource("1_sf8ca")
+
+[node name="PlayerController" type="Node" parent="."]
+script = SubResource("GDScript_0evd1")
+
+[node name="CamParent" type="Node3D" parent="PlayerController"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="OrbitCamera" type="Camera3D" parent="PlayerController/CamParent"]
+script = ExtResource("3_30kut")
+SCROLL_SPEED = 200.0
+ROTATE_SPEED = 1.5
+MOVE_SPEED = 6.0
+ANCHOR_NODE_PATH = NodePath("..")
+
+[node name="SelectionController" type="Node3D" parent="PlayerController"]
+script = ExtResource("4_5avnr")
+neuron_collision_mask = 2
+dendrite_collision_mask = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_87yxp")
+
+[node name="ActivityMapManager" type="Node3D" parent="."]
+script = ExtResource("5_hqe2l")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dm5vpiwp1gqy8"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+size_flags_vertical = 8
+
+[node name="Footnote" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "*"
+
+[node name="Label" type="Label" parent="."]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 11
+text = "Hover over labels with the info icon for more information"
+autowrap_mode = 2

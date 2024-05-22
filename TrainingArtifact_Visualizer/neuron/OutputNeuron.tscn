@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqb2fjqo5qvss"]
+
+[ext_resource type="Script" path="res://neuron/scripts/OutputNeuron.cs" id="1_kubi0"]
+[ext_resource type="Gradient" uid="uid://bve8jvqxa2ss3" path="res://neuron/assets/BackpropGradient.tres" id="2_hfx6i"]
+[ext_resource type="Gradient" uid="uid://fdacjigq6xmu" path="res://neuron/assets/SelectionGradient.tres" id="3_553bo"]
+[ext_resource type="Texture2D" uid="uid://bgv2qpy0hpjp1" path="res://neuron/assets/neuron_base.png" id="4_33snq"]
+[ext_resource type="Texture2D" uid="uid://sljnxht12m1r" path="res://neuron/assets/neuron_selected.png" id="5_p0p31"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pg7nx"]
+
+[node name="OutputNeuron" type="Node3D"]
+script = ExtResource("1_kubi0")
+BackpropGradient = ExtResource("2_hfx6i")
+SelectionGradient = ExtResource("3_553bo")
+
+[node name="ValueLabel" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.4, 0)
+pixel_size = 0.002
+billboard = 1
+double_sided = false
+fixed_size = true
+text = "0.00
+"
+font_size = 128
+outline_size = 0
+
+[node name="BaseSprite" type="Sprite3D" parent="."]
+pixel_size = 0.0008
+billboard = 1
+double_sided = false
+render_priority = 10
+texture = ExtResource("4_33snq")
+
+[node name="SelectedSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+modulate = Color(2, 2, 2, 1)
+pixel_size = 0.0008
+billboard = 1
+double_sided = false
+render_priority = 10
+texture = ExtResource("5_p0p31")
+
+[node name="OutputLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22328, 0)
+pixel_size = 0.0075
+billboard = 1
+double_sided = false
+text = "0"
+font_size = 128
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+input_capture_on_drag = true
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_pg7nx")

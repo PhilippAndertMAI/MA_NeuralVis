@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://bbegrsaif4eo8"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_e8xte"]
+
+[resource]
+script = ExtResource("1_e8xte")
+item_name = "Input"
+item_desc = "[font_size=18]
+
+[p]
+
+The input into a network refers to the initial data fed into the network at the first layer, the input layer, which is then processed by the network to produce an output. It's typically structured as a one-dimensional array of decimal values in the range [0, 1], which may have been transformed from some initial arbitrary sample.
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+This network features the \"MNIST\" dataset, a set of tens of thousands of handwritten digits compiled into images of 28x28 pixels. For each image sample, the pixels are transformed and fed into the system as a 28 x 28  = 784 long array of single byte values (0 .. 255, later divided to fit the range [0, 1]).
+
+[/p]
+
+[p] [/p]
+
+[p]
+
+The input can be seen in the glowing neurons of the input layer, which show the currently loaded image input.
+
+[/p]
+
+[/font_size]"

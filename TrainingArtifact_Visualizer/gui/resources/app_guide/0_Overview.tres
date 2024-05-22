@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AppGuideItemResource" load_steps=2 format=3 uid="uid://vgwlqy51mn3g"]
+
+[ext_resource type="Script" path="res://gui/resources/scripts/AppGuideItemResource.gd" id="1_mec8w"]
+
+[resource]
+script = ExtResource("1_mec8w")
+item_name = "Overview"
+item_desc = "[center][font_size=20]
+Welcome to NeuralVis!
+[/font_size][/center]
+[font_size=18]
+[p] [/p]
+[p]
+This application is intended to guide learners of artificial neural networks (ANN or NN for short) through a typical training process by visualizing the separate steps in an interactive way.
+[/p]
+[p] [/p]
+[p]
+NeuralVis features a 3D environment that houses a fully-connected neural network with all its neurons arranged in an understandable way. The aim of this network is to train on a set of handwritten digits compiled as a 28x28 grid of pixels, which can be observed when looking at the input layer of the network. [/p]
+[p] [/p]
+[p]
+The elements in the scene can be clicked, inspected, rotated around and the user interface controls the playback of the NN's training. Each single step is labelled at top of the screen, while the playback can be conrolled with the control bar at the bottom.
+[/p]
+[p] [/p]
+[p]
+NeuralVis' features are listed in this menu, so feel free to re-open it any time by clicking the blue question mark at the top left of the interface!
+[/p]
+[/font_size]"
